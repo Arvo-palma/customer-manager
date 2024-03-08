@@ -1,0 +1,16 @@
+components:
+  schemas:
+    ListUsersOutput:
+      properties:
+        meta:
+          $ref: '#/components/schemas/PaginateMetaSchema'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserModel'
+  parameters:
+    ListUsersCriteria:
+      name: criteria
+      in: query
+      type: string
+      required: false

@@ -1,0 +1,27 @@
+{
+  "extends": "adonis-preset-ts/tsconfig.json",
+  "include": ["**/*"],
+  "exclude": ["node_modules", "build"],
+  "compilerOptions": {
+    "outDir": "build",
+    "rootDir": "./",
+    "baseUrl": "./",
+    "sourceMap": true,
+    "paths": {
+      "app/*": ["./app/*"],
+      "config/*": ["./config/*"],
+      "contracts/*": ["./contracts/*"],
+      "database/*": ["./database/*"]
+    },
+    "types": [
+      "@adonisjs/core",
+      "@adonisjs/repl",
+      "@japa/preset-adonis/build/adonis-typings",
+      "adonis5-swagger",
+      "@adonisjs/lucid",
+      "@adonisjs/auth",
+      "adonis5-jwt",
+      "adonis5-sentry"
+    ]
+  }
+}

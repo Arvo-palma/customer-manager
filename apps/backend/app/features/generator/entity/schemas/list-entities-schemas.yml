@@ -1,0 +1,16 @@
+components:
+  schemas:
+    ListEntitiesOutput:
+      properties:
+        meta:
+          $ref: '#/components/schemas/PaginateMetaSchema'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityModel'
+  parameters:
+    ListEntitiesCriteria:
+      name: criteria
+      in: query
+      type: string
+      required: false

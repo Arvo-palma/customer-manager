@@ -1,0 +1,19 @@
+components:
+  schemas:
+    CreateUserInput:
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+        avatar:
+          type: string
+        password:
+          type: string
+        temporaryPassword:
+          type: string
+
+    CreateUserOutput:
+      $ref: '#components/schemas/UserModel'

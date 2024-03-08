@@ -1,0 +1,33 @@
+components:
+  parameters:
+    Page:
+      name: page
+      format: number
+      in: query
+      required: true
+    Limit:
+      name: limit
+      format: number
+      in: query
+      required: true
+  schemas:
+    PaginateMetaSchema:
+      properties:
+        total:
+          type: number
+        per_page:
+          type: number
+        current_page:
+          type: number
+        last_page:
+          type: number
+        first_page:
+          type: number
+        first_page_url:
+          type: string
+        last_page_url:
+          type: string
+        next_page_url:
+          type: string
+        previous_page_url:
+          type: string

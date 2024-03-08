@@ -1,0 +1,10 @@
+components:
+  schemas:
+    FindEntityOutput:
+      $ref: '#components/schemas/entityModel'
+  parameters:
+    FindEntityName:
+      name: entityName
+      in: path
+      type: string
+      required: true

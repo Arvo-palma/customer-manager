@@ -1,0 +1,10 @@
+components:
+  schemas:
+    FindUserOutput:
+      $ref: '#components/schemas/userModel'
+  parameters:
+    FinduserId:
+      name: userId
+      in: path
+      type: string
+      required: true

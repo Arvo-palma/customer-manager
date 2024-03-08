@@ -1,0 +1,7 @@
+components:
+  parameters:
+    DeleteUserId:
+      name: userId
+      in: path
+      type: string
+      required: true

@@ -1,0 +1,7 @@
+components:
+  parameters:
+    DeleteEntityName:
+      name: entityName
+      in: path
+      type: string
+      required: true
