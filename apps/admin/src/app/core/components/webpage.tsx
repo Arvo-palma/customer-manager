@@ -17,13 +17,13 @@ const Webpage: React.FC<WebpageProps> = ({ children, title, className }) => {
       <Sidebar
         logo={<></>}
         items={[
-          { icon: <HomeIcon />, label: "Principal", href: "/" },
+          { icon: <HomeIcon />, label: "General", href: "/" },
           {
             icon: <PlusIcon />,
-            label: "Gerenciar",
+            label: "Manage",
             items: [
               {
-                label: "Adicionar cliente",
+                label: "Add client",
                 href: "/users/new"
               }
             ]

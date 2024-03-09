@@ -12,13 +12,13 @@ import Webpage from "@core/components/webpage"
 import { useMutation } from "@tanstack/react-query"
 import React from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
-import { updateUsers } from "../actions"
+import { createUser } from "../actions"
 
 // export const metadata: Metadata = {
 //   title: "Nova marca"
 // }
 
-export type UsersFormType = {
+export type UserFormType = {
   name: string
   email: string
   phone: string
@@ -29,11 +29,11 @@ export type UsersFormType = {
 export interface UsersPageProps {}
 const UsersPage: React.FC<UsersPageProps> = ({}) => {
   const { mutate } = useMutation({
-    mutationFn: updateUsers
+    mutationFn: createUser
   })
 
-  const { handleSubmit, register, control } = useForm<UsersFormType>()
-  const onSubmit: SubmitHandler<UsersFormType> = (values) => {
+  const { handleSubmit, register, control } = useForm<UserFormType>()
+  const onSubmit: SubmitHandler<UserFormType> = (values) => {
     mutate(values)
   }
 
@@ -45,12 +45,12 @@ const UsersPage: React.FC<UsersPageProps> = ({}) => {
   }
 
   return (
-    <Webpage title="Novo cliente" className="w-full h-full bg-gray-100">
+    <Webpage title="New client" className="w-full h-full bg-gray-100">
       <Column className="bg-white h-full w-full max-w-[900px] self-center p-8">
         <Form className="divide-y" onSubmit={handleSubmit(onSubmit)}>
           <Column className={inputContainerGeneralClasses}>
             <TextInput
-              label="Nome"
+              label="Name"
               direction="row"
               className={textInputGeneralClasses}
               {...register("name")}
@@ -66,7 +66,7 @@ const UsersPage: React.FC<UsersPageProps> = ({}) => {
           </Column>
           <Column className={inputContainerGeneralClasses}>
             <TextInput
-              label="Telefone"
+              label="Phone"
               direction="row"
               className={textInputGeneralClasses}
               {...register("phone")}
@@ -74,7 +74,7 @@ const UsersPage: React.FC<UsersPageProps> = ({}) => {
           </Column>
           <Row className="p-4 gap-2 justify-center">
             <TextInput
-              label="Coordenadas"
+              label="Coordinates"
               direction="row"
               placeholder="X"
               className={{
@@ -94,7 +94,7 @@ const UsersPage: React.FC<UsersPageProps> = ({}) => {
             />
           </Row>
           <Column className={inputContainerGeneralClasses}>
-            <Button intent="primary" label="Salvar" />
+            <Button intent="primary" label="Save" />
           </Column>
         </Form>
       </Column>
