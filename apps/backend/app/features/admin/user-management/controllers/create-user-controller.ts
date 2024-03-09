@@ -1,16 +1,10 @@
 import { inject } from '@adonisjs/core/build/standalone'
-import Application from '@ioc:Adonis/Core/Application'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { v4 as uuidV4 } from 'uuid'
 import { CreateUserSchema } from '../schemas/create-user-schema'
 import CreateUserService from '../services/create-user-service'
 @inject([CreateUserService])
 export default class CreateUserController {
   constructor(private service: CreateUserService) {}
-  private validationOptions = {
-    types: ['avatar'],
-    size: '2mb',
-  }
   /**
    * @swagger
    * /admin/user:
@@ -43,18 +37,7 @@ export default class CreateUserController {
     const params = await ctx.request.validate({
       schema: CreateUserSchema,
     })
-    const body = ctx.request.body()
-    const avatar = body.file('avatar', this.validationOptions)
 
-    if (avatar) {
-      const avatarName = `${uuidV4()}.${avatar.extname}`
-
-      await avatar.move(Application.tmpPath('uploads'), {
-        name: avatarName,
-      })
-
-      params.avatar = avatarName
-    }
     try {
       const user = await this.service.execute(params)
       if (!user) {

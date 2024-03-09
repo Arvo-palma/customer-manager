@@ -1,10 +1,4 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
-
-export enum UserRole {
-  ADMIN = 'ADMIN',
-  OPERATOR = 'OPERATOR',
-  USER = 'USER',
-}
 export default class extends BaseSchema {
   protected tableName = 'users'
 
@@ -13,10 +7,9 @@ export default class extends BaseSchema {
       table.string('id').primary()
       table.string('name').notNullable()
       table.string('email').notNullable().unique()
-      table.enum('role', Object.values(UserRole)).defaultTo(UserRole.USER)
-      table.string('avatar')
-      table.string('password').notNullable()
-      table.string('temporary_password')
+      table.string('phone')
+      table.integer('coord_x')
+      table.integer('coord_y')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

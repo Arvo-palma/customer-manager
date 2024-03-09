@@ -6,14 +6,12 @@ components:
           type: string
         email:
           type: string
-        role:
+        phone:
           type: string
-        avatar:
-          type: string
-        password:
-          type: string
-        temporaryPassword:
-          type: string
+        coordX:
+          type: number
+        coordY:
+          type: number
     UpdateUserOutput:
       $ref: '#components/schemas/UserModel'
   parameters:
