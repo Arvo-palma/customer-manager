@@ -1,25 +1,22 @@
+import React from "react"
+import { Column, Flex, Show } from "."
+import { classNameBuilder } from "../helpers/class-name-builder"
 
-import React from "react";
-import { Flex, Column, Show } from ".";
-import { classNameBuilder } from "../helpers/class-name-builder";
-
-export type InputWrapperDirection = "column" | "row";
+export type InputWrapperDirection = "column" | "row"
 export interface InputWrapperProps {
-  label?: string;
-  error?: string;
-  required?: boolean;
-  children?: React.ReactNode;
-  className?: string;
-  labelFor?: string;
-  direction?: InputWrapperDirection;
+  label?: string
+  error?: string
+  required?: boolean
+  children?: React.ReactNode
+  className?: string
+  labelFor?: string
+  direction?: InputWrapperDirection
 }
 export const InputWrapper: React.FC<InputWrapperProps> = (props) => {
   return (
     <Flex
       className={classNameBuilder(
-        props.direction === "row"
-          ? "flex-row gap-xs"
-          : "flex-col items-start",
+        props.direction === "row" ? "flex-row gap-xs" : "flex-col items-start",
         props.className
       )}
     >
@@ -27,7 +24,7 @@ export const InputWrapper: React.FC<InputWrapperProps> = (props) => {
         <label
           htmlFor={props.labelFor}
           className={classNameBuilder(
-            "text-sm mb-1",
+            "text-sm my-auto",
             'after:ml-0.5 after:text-danger-300 after:content-["*"]',
             props.error ? "text-danger-400" : "text-gray-700",
             !props.required && "after:hidden"
@@ -36,14 +33,14 @@ export const InputWrapper: React.FC<InputWrapperProps> = (props) => {
           {props.label}
         </label>
       </Show>
-      <Column className="w-full">
+      <Column className="pt-1">
         {props.children}
         <span className="h-0 mt-1 text-danger-400 text-xs">
           {props.error ? "*" + props.error : null}
         </span>
       </Column>
     </Flex>
-  );
-};
+  )
+}
 
-export default InputWrapper;
+export default InputWrapper

@@ -1,9 +1,9 @@
 import React from "react"
+import { InputWrapper, InputWrapperDirection } from "."
 import { classNameBuilder } from "../helpers/class-name-builder"
 import { UncontrolledFormElement } from "../types/theme-type"
-import { InputWrapper, InputWrapperDirection } from "."
 
-interface TextInputProps extends UncontrolledFormElement {
+export interface TextInputProps extends UncontrolledFormElement {
   direction?: InputWrapperDirection
   className?: { input?: string; wrapper?: string }
 }

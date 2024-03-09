@@ -1,5 +1,13 @@
 "use client"
-import { Button, Column, Form, TextInput } from "@core/components"
+import {
+  Button,
+  Column,
+  ColumnProps,
+  Form,
+  Row,
+  TextInput,
+  TextInputProps
+} from "@core/components"
 import Webpage from "@core/components/webpage"
 import { useMutation } from "@tanstack/react-query"
 import React from "react"
@@ -12,7 +20,10 @@ import { updateUsers } from "../actions"
 
 export type UsersFormType = {
   name: string
-  image: File
+  email: string
+  phone: string
+  coordX: number
+  coordY: number
 }
 
 export interface UsersPageProps {}
@@ -25,41 +36,64 @@ const UsersPage: React.FC<UsersPageProps> = ({}) => {
   const onSubmit: SubmitHandler<UsersFormType> = (values) => {
     mutate(values)
   }
+
+  const inputContainerGeneralClasses: ColumnProps["className"] = "p-4"
+
+  const textInputGeneralClasses: TextInputProps["className"] = {
+    input: "w-full max-w-[400px] ml-4",
+    wrapper: "justify-center"
+  }
+
   return (
-    <Webpage title="Novo usuário" className="w-full h-full bg-gray-100">
+    <Webpage title="Novo cliente" className="w-full h-full bg-gray-100">
       <Column className="bg-white h-full w-full max-w-[900px] self-center p-8">
         <Form className="divide-y" onSubmit={handleSubmit(onSubmit)}>
-          <Column className="pb-8">
+          <Column className={inputContainerGeneralClasses}>
             <TextInput
               label="Nome"
               direction="row"
-              className={{
-                input: "w-full max-w-[400px] self-end"
-              }}
+              className={textInputGeneralClasses}
               {...register("name")}
             />
           </Column>
-          <Column className="pb-8">
+          <Column className={inputContainerGeneralClasses}>
             <TextInput
               label="Email"
               direction="row"
-              className={{
-                input: "w-full max-w-[400px] self-end"
-              }}
+              className={textInputGeneralClasses}
               {...register("email")}
             />
           </Column>
-            <Column className="pb-8">
+          <Column className={inputContainerGeneralClasses}>
             <TextInput
               label="Telefone"
               direction="row"
-              className={{
-                input: "w-full max-w-[400px] self-end"
-              }}
+              className={textInputGeneralClasses}
               {...register("phone")}
             />
           </Column>
-          <Column className="pt-8">
+          <Row className="p-4 gap-2 justify-center">
+            <TextInput
+              label="Coordenadas"
+              direction="row"
+              placeholder="X"
+              className={{
+                input: "w-full max-w-[50px]",
+                wrapper: ""
+              }}
+              {...register("coordX")}
+            />
+            <TextInput
+              direction="row"
+              placeholder="Y"
+              className={{
+                input: "w-full max-w-[50px]",
+                wrapper: ""
+              }}
+              {...register("coordY")}
+            />
+          </Row>
+          <Column className={inputContainerGeneralClasses}>
             <Button intent="primary" label="Salvar" />
           </Column>
         </Form>

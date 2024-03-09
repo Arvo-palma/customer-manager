@@ -4,7 +4,6 @@ import { Column, Flex } from ".."
 import { classNameBuilder } from "../../helpers/class-name-builder"
 import { Accordion, AccordionProps } from "./accordion"
 import { Item, ItemProps } from "./item"
-import LogoutButton from "./logout-button"
 
 export interface SidebarProps {
   logo: JSX.Element | { full: JSX.Element; collapsed: JSX.Element }
@@ -52,7 +51,6 @@ const Sidebar: React.FC<SidebarProps> = ({
           <ItemToRender key={index} expanded={expanded} {...(item as any)} />
         )
       })}
-      <LogoutButton className="mt-auto" expanded={expanded} />
     </Column>
   )
 }
