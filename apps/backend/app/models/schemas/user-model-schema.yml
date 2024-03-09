@@ -1,0 +1,16 @@
+components:
+  schemas:
+    UserModel:
+      allOf:
+        - $ref: '#/components/schemas/BaseModel'
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        coordX:
+          type: number
+        coordY:
+          type: number

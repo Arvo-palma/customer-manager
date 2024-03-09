@@ -10,7 +10,7 @@ components:
           type: string
         coordX:
           type: number
-        coordX:
+        coordY:
           type: number
 
     CreateUserOutput:
