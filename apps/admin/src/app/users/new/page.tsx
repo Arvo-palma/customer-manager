@@ -45,7 +45,7 @@ const UsersPage: React.FC<UsersPageProps> = ({}) => {
   }
 
   return (
-    <Webpage title="New client" className="w-full h-full bg-gray-100">
+    <Webpage title="New customer" className="w-full h-full bg-gray-100">
       <Column className="bg-white h-full w-full max-w-[900px] self-center p-8">
         <Form className="divide-y" onSubmit={handleSubmit(onSubmit)}>
           <Column className={inputContainerGeneralClasses}>

@@ -23,7 +23,7 @@ const Webpage: React.FC<WebpageProps> = ({ children, title, className }) => {
             label: "Manage",
             items: [
               {
-                label: "Add client",
+                label: "Add customer",
                 href: "/users/new"
               }
             ]

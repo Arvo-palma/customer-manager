@@ -4,7 +4,8 @@ import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import React from "react"
 import { USERS_PATH, createRoute, getUsers } from "../actions"
-import ClientTableSkeleton from "./client-table-skeleton"
+import CustomerTableSkeleton from "./customer-table-skeleton"
+import RouteModal from "./route-modal"
 
 const columns: GridColDef[] = [
   { field: "name", headerName: "Name", width: 300 },
@@ -29,13 +30,11 @@ const columns: GridColDef[] = [
   }
 ]
 
-export default function ClientsTable() {
+export default function CustomersTable() {
   const [selected, setSelected] = React.useState<string[]>([])
   const [route, setRoute] = React.useState([])
 
-  console.log(selected, route)
-
-  const { data: allClients, isLoading } = useQuery({
+  const { data: allCustomers, isLoading } = useQuery({
     queryFn: () => getUsers(),
     queryKey: [USERS_PATH]
   })
@@ -45,10 +44,10 @@ export default function ClientsTable() {
     onSuccess: (data) => setRoute(data)
   })
 
-  if (!allClients || allClients?.length < 1 || isLoading) {
+  if (!allCustomers || allCustomers?.length < 1 || isLoading) {
     return (
       <div style={{ height: "100", width: "100%" }}>
-        <ClientTableSkeleton />
+        <CustomerTableSkeleton />
       </div>
     )
   }
@@ -57,7 +56,7 @@ export default function ClientsTable() {
     <div style={{ height: "100", width: "100%" }}>
       <DataGrid
         loading={isLoading}
-        rows={allClients}
+        rows={allCustomers}
         columns={columns}
         initialState={{
           pagination: {
@@ -67,10 +66,6 @@ export default function ClientsTable() {
         pageSizeOptions={[5, 10]}
         checkboxSelection
         onRowSelectionModelChange={(ids) => {
-          // const selectedIDs = new Set(ids)
-          // const selectedRowData = allClients.filter((row) =>
-          //   selectedIDs.has(row.id.toString())
-          // )
           const selectedIDs = ids.map((id) => id.toString())
           setSelected(selectedIDs)
         }}
@@ -84,6 +79,11 @@ export default function ClientsTable() {
           />
         </Column>
       </Show>
+      <RouteModal
+        route={route}
+        isOpen={route?.length > 0}
+        onClose={() => setRoute([])}
+      />
     </div>
   )
 }
