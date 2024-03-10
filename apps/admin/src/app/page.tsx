@@ -1,4 +1,3 @@
-"use client"
 import { Column } from "@core/components"
 import Webpage from "@core/components/webpage"
 import ClientsTable from "./users/components/clients-table"

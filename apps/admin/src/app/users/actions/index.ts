@@ -31,3 +31,17 @@ export const createUser = async (user: UserFormType) => {
     throw handleError(error)
   }
 }
+
+export const createRoute = async (userIds: string[]) => {
+  const options = {
+    method: "POST",
+    url: `${process.env.NEXT_PUBLIC_API_URL}/admin/user/route`,
+    data: { users: userIds }
+  }
+  try {
+    const { data } = await axios.request(options)
+    return data
+  } catch (error) {
+    throw handleError(error)
+  }
+}
