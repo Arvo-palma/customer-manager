@@ -8,11 +8,15 @@ import {
   TextInput,
   TextInputProps
 } from "@core/components"
+import NumberInput from "@core/components/number-input"
 import Webpage from "@core/components/webpage"
+import { required } from "@core/helpers/react-hook-form-rules"
+import { useForm } from "@core/hooks"
+import { useShowMessage } from "@core/hooks/use-show-message"
 import { useMutation } from "@tanstack/react-query"
 import { useRouter } from "next/navigation"
 import React from "react"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { SubmitHandler } from "react-hook-form"
 import { createUser } from "../actions"
 
 export type UserFormType = {
@@ -26,15 +30,18 @@ export type UserFormType = {
 export interface UsersPageProps {}
 const UsersPage: React.FC<UsersPageProps> = ({}) => {
   const router = useRouter()
+  const { showError } = useShowMessage()
 
   const { mutate } = useMutation({
     mutationFn: createUser,
     onSuccess: () => router.push("/")
   })
 
-  const { handleSubmit, register, control } = useForm<UserFormType>()
+  const { handleSubmit, register, getError } = useForm<UserFormType>()
   const onSubmit: SubmitHandler<UserFormType> = (values) => {
-    mutate(values)
+    mutate(values, {
+      onError: (err) => showError(String(err))
+    })
   }
 
   const inputContainerGeneralClasses: ColumnProps["className"] = "p-4"
@@ -52,45 +59,55 @@ const UsersPage: React.FC<UsersPageProps> = ({}) => {
             <TextInput
               label="Name"
               direction="row"
+              required
               className={textInputGeneralClasses}
-              {...register("name")}
+              error={getError("name")}
+              {...register("name", { required })}
             />
           </Column>
           <Column className={inputContainerGeneralClasses}>
             <TextInput
               label="Email"
               direction="row"
+              required
               className={textInputGeneralClasses}
-              {...register("email")}
+              error={getError("email")}
+              {...register("email", { required })}
             />
           </Column>
           <Column className={inputContainerGeneralClasses}>
             <TextInput
               label="Phone"
               direction="row"
+              required
               className={textInputGeneralClasses}
-              {...register("phone")}
+              error={getError("phone")}
+              {...register("phone", { required })}
             />
           </Column>
           <Row className="p-4 gap-2 justify-center">
-            <TextInput
+            <NumberInput
               label="Coordinates"
               direction="row"
               placeholder="X"
+              required
               className={{
-                input: "w-full max-w-[50px]",
+                input: "w-full max-w-[70px]",
                 wrapper: ""
               }}
-              {...register("coordX")}
+              error={getError("coordX")}
+              {...register("coordX", { required })}
             />
-            <TextInput
+            <NumberInput
               direction="row"
               placeholder="Y"
+              required
               className={{
-                input: "w-full max-w-[50px]",
+                input: "w-full max-w-[70px]",
                 wrapper: ""
               }}
-              {...register("coordY")}
+              error={getError("coordY")}
+              {...register("coordY", { required })}
             />
           </Row>
           <Column className={inputContainerGeneralClasses}>
