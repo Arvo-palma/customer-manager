@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a full stack project in a monorepository made for Facilia Jurídico's developer job selection process.
 
-## Getting Started
+## How to run this project:
 
-First, run the development server:
+First, clone this repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository SSH>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the folder in VSCode and run:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Obs.: If you don't have yarn installed run "npm install --global yarn".
 
-## Learn More
+Then, go to the backend folder and run the commands to create the tables and populate:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+cd ./apps/backend/
+and
+node ace migration:run
+and
+node ace db:seed
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run the project in two different terminals:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Frontend:
 
-## Deploy on Vercel
+```bash
+cd ./apps/admin/
+and
+yarn dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Backend:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+cd ./apps/backend/
+and
+yarn dev
+```
+
+Go to the browser and check the result in http://localhost:3000/
+
+If you want to check the database documentation go to: http://localhost:3333/docs/
