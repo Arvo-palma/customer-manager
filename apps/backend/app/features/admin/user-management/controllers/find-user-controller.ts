@@ -13,8 +13,6 @@ export default class FindUserController {
    *     tags:
    *       - '[Admin] User Management'
    *     summary: Find a existing user
-   *     security:
-   *       - bearerAuth: []
    *     produces:
    *       - application/json
    *     responses:

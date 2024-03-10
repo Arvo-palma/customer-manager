@@ -13,8 +13,6 @@ export default class UpdateUserController {
    *     tags:
    *       - '[Admin] User Management'
    *     summary: Update a existing user
-   *     security:
-   *       - bearerAuth: []
    *     produces:
    *       - application/json
    *     responses:

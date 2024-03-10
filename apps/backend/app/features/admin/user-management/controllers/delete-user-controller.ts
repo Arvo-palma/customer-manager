@@ -13,8 +13,6 @@ export default class DeleteUserController {
    *     tags:
    *       - '[Admin] User Management'
    *     summary: Delete a existing User
-   *     security:
-   *       - bearerAuth: []
    *     produces:
    *       - application/json
    *     responses:

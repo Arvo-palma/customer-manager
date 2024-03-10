@@ -12,8 +12,6 @@ export default class CreateUserController {
    *     tags:
    *       - '[Admin] User Management'
    *     summary: Create new user
-   *     security:
-   *       - bearerAuth: []
    *     produces:
    *       - application/json
    *     responses:

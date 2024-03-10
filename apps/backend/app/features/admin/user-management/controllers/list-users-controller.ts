@@ -12,8 +12,6 @@ export default class ListUsersController {
    *     tags:
    *       - '[Admin] User Management'
    *     summary: List existing Users
-   *     security:
-   *       - bearerAuth: []
    *     produces:
    *       - application/json
    *     responses:

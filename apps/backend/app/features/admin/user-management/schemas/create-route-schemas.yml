@@ -1,0 +1,16 @@
+components:
+  schemas:
+    CreateRouteOutput:
+      properties:
+        meta:
+          $ref: '#/components/schemas/CreateRouteSchema'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserModel'
+  parameters:
+    CreateRouteParam:
+      name: users
+      in: body
+      type: [string]
+      required: true

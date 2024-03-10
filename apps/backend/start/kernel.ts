@@ -39,7 +39,5 @@ Server.middleware.register([() => import('@ioc:Adonis/Core/BodyParser')])
 |
 */
 Server.middleware.registerNamed({
-  basicAuth: () => import('app/middleware/basic-auth-middleware'),
-  bearerAuth: () => import('app/middleware/bearer-auth-middleware'),
   envCheck: () => import('app/middleware/env-check-middleware'),
 })
