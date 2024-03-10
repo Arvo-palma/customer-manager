@@ -3,7 +3,7 @@ import {
   QueryClient,
   QueryClientProvider as TNQueryClientProvider
 } from "@tanstack/react-query"
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experimental"
 import React from "react"
 
@@ -17,7 +17,7 @@ const QueryClientProvider: React.FC<QueryClientProviderProps> = ({
   return (
     <TNQueryClientProvider client={client}>
       <ReactQueryStreamedHydration>{children}</ReactQueryStreamedHydration>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </TNQueryClientProvider>
   )
 }
