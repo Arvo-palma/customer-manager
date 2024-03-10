@@ -10,13 +10,10 @@ import {
 } from "@core/components"
 import Webpage from "@core/components/webpage"
 import { useMutation } from "@tanstack/react-query"
+import { useRouter } from "next/navigation"
 import React from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { createUser } from "../actions"
-
-// export const metadata: Metadata = {
-//   title: "Nova marca"
-// }
 
 export type UserFormType = {
   name: string
@@ -28,8 +25,11 @@ export type UserFormType = {
 
 export interface UsersPageProps {}
 const UsersPage: React.FC<UsersPageProps> = ({}) => {
+  const router = useRouter()
+
   const { mutate } = useMutation({
-    mutationFn: createUser
+    mutationFn: createUser,
+    onSuccess: () => router.push("/")
   })
 
   const { handleSubmit, register, control } = useForm<UserFormType>()
