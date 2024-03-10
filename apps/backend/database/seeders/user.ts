@@ -7,7 +7,7 @@ export default class UserSeeder extends BaseSeeder {
     await User.createMany([
       {
         id: v4(),
-        name: 'João',
+        name: 'João Henrique dos Santos',
         email: 'joao@gmail.com',
         phone: '999990000',
         coordX: 2,
@@ -15,7 +15,7 @@ export default class UserSeeder extends BaseSeeder {
       },
       {
         id: v4(),
-        name: 'Maria',
+        name: 'Maria Aparecida da Silva',
         email: 'maria@gmail.com',
         phone: '999990001',
         coordX: 4,
@@ -23,7 +23,7 @@ export default class UserSeeder extends BaseSeeder {
       },
       {
         id: v4(),
-        name: 'José',
+        name: 'José Antônio dos Reis',
         email: 'jose@gmail.com',
         phone: '999990002',
         coordX: -3,
@@ -31,7 +31,7 @@ export default class UserSeeder extends BaseSeeder {
       },
       {
         id: v4(),
-        name: 'Adamastor',
+        name: 'Adamastor Tarabasque',
         email: 'adamastor@gmail.com',
         phone: '999990003',
         coordX: 100,
