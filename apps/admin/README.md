@@ -5,7 +5,7 @@ This is a full stack project in a monorepository made for Facilia Jurídico's de
 First, clone this repository:
 
 ```bash
-git clone <repository SSH>
+git clone git@github.com:Arvo-palma/customer-manager.git
 ```
 
 Open the folder in VSCode and run:
@@ -47,3 +47,7 @@ yarn dev
 Go to the browser and check the result in http://localhost:3000/
 
 If you want to check the database documentation go to: http://localhost:3333/docs/
+
+To visit the [project repository](https://github.com/Arvo-palma/customer-manager) click here
+
+To see the [video apresentation of project](https://www.loom.com/share/de7a67137593466db98f7a09d70ee6c9?sid=6456c772-58a3-42c2-96fa-5287f266e55b) click here
