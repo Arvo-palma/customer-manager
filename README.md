@@ -1,5 +1,8 @@
 This is a full stack project in a monorepository made for Facilia Jurídico's developer job selection process.
 
+Frontend stack: Typescript, React.js, Next.js, Tailwind.css, Material UI and React query.
+Backend stack: Typescript, Node.js, Adonis.js, Postgres and Swagger.
+
 ## How to run this project:
 
 First, clone this repository:
