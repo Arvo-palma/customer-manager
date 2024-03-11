@@ -13,6 +13,7 @@ import Webpage from "@core/components/webpage"
 import { required } from "@core/helpers/react-hook-form-rules"
 import { useForm } from "@core/hooks"
 import { useShowMessage } from "@core/hooks/use-show-message"
+import { ErrorType } from "@core/types/error-type"
 import { useMutation } from "@tanstack/react-query"
 import { useRouter } from "next/navigation"
 import React from "react"
@@ -40,7 +41,7 @@ const UsersPage: React.FC<UsersPageProps> = ({}) => {
   const { handleSubmit, register, getError } = useForm<UserFormType>()
   const onSubmit: SubmitHandler<UserFormType> = (values) => {
     mutate(values, {
-      onError: (err) => showError(String(err))
+      onError: (error) => showError((error as ErrorType).message)
     })
   }
 
